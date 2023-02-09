@@ -18,7 +18,7 @@
 ### Sử dụng mặc định - Sử dụng cơ bản
 Cài đặt các gói yêu cầu trước bằng cách mở terminal:
     ```
-    opkg update && opkg install curl wget
+    opkg update && opkg install curl wget httping
     ```
 
 - Dán lệnh bên dưới để cài đặt tập lệnh ``jam.sh``
