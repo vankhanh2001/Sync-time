@@ -25,7 +25,7 @@ Cài đặt các gói yêu cầu trước bằng cách mở terminal:
 - Dùng wget:
 
     ```
-    wget --no-check-certificate "https://github.com/thangnguyencl/Sync-time-/blob/main/time-openwrt" -O /usr/bin/time-openwrt && chmod +x /usr/bin/time-openwrt
+    wget --no-check-certificate "https://raw.githubusercontent.com/thangnguyencl/Sync-time-/main/time-openwrt" -O /usr/bin/time-openwrt && chmod +x /usr/bin/time-openwrt
     ```
     
  - dùng curl:
