@@ -105,17 +105,17 @@ function sandal() {
 if [[ "$1" == "update" ]]; then
 	echo -e "${nmfl}: Update tệp lệnh..."
 	echo -e "${nmfl}: Đang tải tệp lệnh..."
-	wget --no-check-certificate "https://raw.githubusercontent.com/thangnguyencl/Sync-time-/main/time-openwrt" -O "$jamup"
+	wget --no-check-certificate "https://raw.githubusercontent.com/thangnguyencl/Sync-time-/main/times-openwrt" -O "$jamup"
 	chmod +x "$jamup"
 	sed -i 's/\r$//' "$jamup"
 	cat << "EOF" > "$jamup2"
 #!/bin/bash
 # Đồng bộ ngày giờ bằng tên miền/URL
-jamsh='/usr/bin/time-openwrt'
+jamsh='/usr/bin/times-openwrt'
 jamup='/root/jamup.sh'
 [[ -e "$jamup" ]] && [[ -f "$jamsh" ]] && rm -f "$jamsh" && mv "$jamup" "$jamsh"
 [[ -e "$jamup" ]] && [[ ! -f "$jamsh" ]] && mv "$jamup" "$jamsh"
-echo -e 'time-openwrt: update thành công.'
+echo -e 'times-openwrt: update thành công.'
 chmod +x "$jamsh"
 EOF
 	sed -i 's/\r$//' "$jamup2"
@@ -145,8 +145,8 @@ function ngepink() {
 			nyetop
 			nyetart
 		else
-			echo -e "${nmfl}: Kết nối tới ${cv_type} is không khả dụng, đang ping lại..."
-			logger "${nmfl}: Kết nối tới ${cv_type} is không khả dụng, đang ping lại..."
+			echo -e "${nmfl}: Ping ${cv_type} is không khả dụng, đang ping lại..."
+			logger "${nmfl}: Ping ${cv_type} is không khả dụng, đang ping lại..."
 			sleep 3
 			ngepink
 		fi
@@ -172,7 +172,7 @@ if [[ ! -z "$cv_type" ]]; then
 	# Cleaning files
 	[[ -f "$logp" ]] && rm -f "$logp" && echo -e "${nmfl}: Đã dọn thư mục logp!" && logger "${nmfl}: Đã dọn thư mục logp!"
 	[[ -f "$dtdir" ]] && rm -f "$dtdir" && echo -e "${nmfl}: Đã dọn thư mục tmp dir!" && logger "${nmfl}: Đã dọn thư mục tmp dir!"
-	[[ -f "$jamup2" ]] && rm -f "$jamup2" && echo -e "${nmfl}: Đã xóa tệp cập nhật!" && logger "${nmfl}: Đã xóa tệp cập nhật!"
+	[[ -f "$jamup2" ]] && rm -f "$jamup2" && echo -e "${nmfl}: Đã xóa tệp update!" && logger "${nmfl}: Đã xóa tệp update!"
 else
 	echo -e "Cách dùng: Thêm tên miền sau tệp lệnh!."
 	echo -e "${nmfl}: Thiếu tên miền/URL!. Vào inbox FB Nguyễn Thắng để biết thêm chi tiết."
