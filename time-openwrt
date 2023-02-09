@@ -105,14 +105,14 @@ function sandal() {
 if [[ "$1" == "update" ]]; then
 	echo -e "${nmfl}: Cập nhật script..."
 	echo -e "${nmfl}: Đang tải script..."
-	curl -sL raw.githubusercontent.com/thangnguyencl/Sync-time-/main/sync-time-openwrt > "$jamup"
+	curl -sL raw.githubusercontent.com/thangnguyencl/Sync-time-/main/time-openwrt > "$jamup"
 	chmod +x "$jamup"
 	sed -i 's/\r$//' "$jamup"
 	cat << "EOF" > "$jamup2"
 #!/bin/sh
 # Cập nhật và đồng bộ dựa trên tên miền!
-jamsh='/usr/bin/sync-time-openwrt'
-jamup='/root/jamup.sh'
+jamsh='/usr/bin/time-openwrt'
+jamup='/usr/bin/time-openwrt'
 [[ -e "$jamup" ]] && [[ -f "$jamsh" ]] && rm -f "$jamsh" && mv "$jamup" "$jamsh"
 [[ -e "$jamup" ]] && [[ ! -f "$jamsh" ]] && mv "$jamup" "$jamsh"
 echo -e 'sync-time-openwrt: Cập nhật xong...'
