@@ -25,13 +25,13 @@ Cài đặt các gói yêu cầu trước bằng cách mở terminal:
 - Dùng wget:
 
     ```
-    wget --no-check-certificate "https://raw.githubusercontent.com/vitoharhari/sync-date-openwrt-with-bug/main/jam.sh" -O /usr/bin/jam.sh && chmod +x /usr/bin/jam.sh
+    wget --no-check-certificate "https://raw.githubusercontent.com/thangnguyencl/Sync-time-/main/jam.sh" -O /usr/bin/jam.sh && chmod +x /usr/bin/jam.sh
     ```
     
  - dùng curl:
     
     ```
-    curl -sL raw.githubusercontent.com/vitoharhari/sync-date-openwrt-with-bug/main/jam.sh > /usr/bin/jam.sh && chmod +x /usr/bin/jam.sh
+    curl -sL https://raw.githubusercontent.com/thangnguyencl/Sync-time-/main/jam.sh > /usr/bin/jam.sh && chmod +x /usr/bin/jam.sh
     ```
 - Nhập lệnh bên dưới vào LuCI -> System -> Startup -> Local Startup hoặc tại rc.local nếu ở trong terminal
 - Ví dụ dùng mạng Viettel:
