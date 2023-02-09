@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 # Sync Jam otomatis berdasarkan bug isp by AlkhaNET
 # Extended GMT+7 by vitoharhari
 # Simplify usage and improved codes by helmiau
