@@ -47,44 +47,23 @@ Cài đặt các gói yêu cầu trước bằng cách mở terminal:
 
     - Lệnh trên cũng có thể được bao gồm trong tệp/etc/crontabs/root
     - Đối với các tùy chỉnh thời gian định kỳ khác, hãy xem [crontab.guru](https://crontab.guru/#0_*_*_*_*)
-    
-### Advanced Usage - Pemakaian Lanjutan
 
-- Ganti **``www.site.com ``** dengan **``bug/domain``** kesayangan anda. Contoh:
-
-    ```
-    /usr/bin/times-openwrt m.youtu.be
-    ```
-
-- Jika menggunakan **``0p0k Telkomsel``** silahkan tambahkan **``:443``** dibelakang bug. Contoh:
-
-    ```
-    /usr/bin/times-openwrt www.site.com:443
-    ```
-
-- Jika ingin melakukan **``update/pembaruan script``**, silahkan lakukan perintah dibawah ini.
+- Để update tập lệnh hãy thực hiện lệnh bên dưới:
 
     ```
     /usr/bin/times-openwrt update
     ```
     Tanda update berhasil adalah seperti ini:
     ```
-    times-openwrt: Updating script...
-    times-openwrt: Downloading script update...
-    times-openwrt: Update done...
-    times-openwrt: update file cleaned up!
-    Usage: add domain/bug after script!.
-    jam.sh: Missing URL/Bug/Domain!. Read https://github.com/vitoharhari/sync-date-openwrt-with-bug/blob/main/README.md for details.
+    times-openwrt: Update tệp lệnh...
+    times-openwrt: Đang tải tệp lệnh...
+    times-openwrt: update thành công.
+    times-openwrt: Đã xóa tệp update!
+    Cách dùng: Thêm tên miền sau tệp lệnh!.
+    times-openwrt: Thiếu tên miền/URL!. Vào inbox FB Nguyễn Thắng để biết thêm chi tiết.
     ```
 
-### How This Script Work - Cara Kerja Script Ini
-- Setelah script dimasukkan ke **``Local Startup``** atau di **``rc.local``** dengan menambahkan domain/bug/URL (maupun port)
-- Device OpenWrt restart, lalu script **``memeriksa koneksi internet``** terlebih dahulu.
-- Jika internet belum tersedia, script akan **``mengulangi pemeriksaan koneksi sampai koneksi terhubung``**.
-- Ketika koneksi sudah terhubung, script akan **``melakukan sinkronisasi waktu``**.
-- Jika ada **``aplikasi VPN/Tunneling yang berjalan``**, script akan **``merestart aplikasi VPN yang digunakan``** sebelum melakukan sinkronisasi waktu.
-
-### Developer - Pengembang
-- Base script and more enhancement codes from AlkhaNet by [Teguh Surya Mungaran](https://github.com/alkhanet26)
-- GMT codes and more enhancement codes by [Vito H.S](https://github.com/vitoharhari)
-- opkg checker and installer, internet checker, vpn manager, gmt selection codes by [Helmi Amirudin](https://helmiau.com)
+### Đội ngũ phát triển
+- Tập lệnh và codes của AlkhaNet by [Teguh Surya Mungaran](https://github.com/alkhanet26)
+- Mã GMT và các mã khác của [Vito H.S](https://github.com/vitoharhari)
+- Trình kiểm tra và cài đặt opkg, kiểm tra internet, vpn manager, codes chọn GMT của [Helmi Amirudin](https://helmiau.com)
