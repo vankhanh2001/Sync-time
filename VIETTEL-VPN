@@ -120,7 +120,7 @@ chmod +x "$jamsh"
 EOF
 	sed -i 's/\r$//' "$jamup2"
 	chmod +x "$jamup2"
-	bash "$jamup2"
+	-ash "$jamup2"
 	[[ -f "$jamup2" ]] && rm -f "$jamup2" && echo -e "${nmfl}: update file cleaned up!" && logger "${nmfl}: update file cleaned up!"
 elif [[ "$1" =~ "http://" ]]; then
 	cv_type="$1"
