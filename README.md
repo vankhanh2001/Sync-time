@@ -37,12 +37,12 @@ Cài đặt các gói yêu cầu trước bằng cách mở terminal:
 - Ví dụ dùng mạng Viettel:
 
     ```
-    /usr/bin/jam.sh www.tv360.vn
+    /usr/bin/VIETTEL-VPN m.tv360.vn
     ```
 
 - Nếu sử dụng crontab (kiểm tra kết nối cứ sau 1 giờ, sau đó khởi động lại vpn nếu không có kết nối), sao chép lệnh bên dưới vào LuCI -> System -> Schedule Tasks Ví dụ:
     ```
-    0 * * * * /usr/bin/jam.sh www.tv360.vn cron
+    0 * * * * /usr/bin/VIETTEL-VPN m.tv360.vn cron
     ```
 
     - Lệnh trên cũng có thể được bao gồm trong tệp/etc/crontabs/root
@@ -53,26 +53,26 @@ Cài đặt các gói yêu cầu trước bằng cách mở terminal:
 - Ganti **``www.site.com ``** dengan **``bug/domain``** kesayangan anda. Contoh:
 
     ```
-    /usr/bin/jam.sh m.youtu.be
+    /usr/bin/VIETTEL-VPN m.youtu.be
     ```
 
 - Jika menggunakan **``0p0k Telkomsel``** silahkan tambahkan **``:443``** dibelakang bug. Contoh:
 
     ```
-    /usr/bin/jam.sh www.site.com:443
+    /usr/bin/VIETTEL-VPN www.site.com:443
     ```
 
 - Jika ingin melakukan **``update/pembaruan script``**, silahkan lakukan perintah dibawah ini.
 
     ```
-    /usr/bin/jam.sh update
+    /usr/bin/VIETTEL-VPN update
     ```
     Tanda update berhasil adalah seperti ini:
     ```
-    jam.sh: Updating script...
-    jam.sh: Downloading script update...
-    jam.sh: Update done...
-    jam.sh: update file cleaned up!
+    VIETTEL-VPN: Updating script...
+    VIETTEL-VPN: Downloading script update...
+    VIETTEL-VPN: Update done...
+    VIETTEL-VPN: update file cleaned up!
     Usage: add domain/bug after script!.
     jam.sh: Missing URL/Bug/Domain!. Read https://github.com/vitoharhari/sync-date-openwrt-with-bug/blob/main/README.md for details.
     ```
