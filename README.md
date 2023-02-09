@@ -21,28 +21,28 @@ Cài đặt các gói yêu cầu trước bằng cách mở terminal:
     opkg update && opkg install curl wget httping
     ```
 
-- Dán lệnh bên dưới để cài đặt tập lệnh ``jam.sh``
+- Dán lệnh bên dưới để cài đặt tập lệnh ``sync-time-openwrt``
 - Dùng wget:
 
     ```
-    wget --no-check-certificate "https://raw.githubusercontent.com/thangnguyencl/Sync-time-/main/VIETTEL-VPN" -O /usr/bin/VIETTEL-VPN && chmod +x /usr/bin/VIETTEL-VPN
+    wget --no-check-certificate "https://raw.githubusercontent.com/thangnguyencl/Sync-time-/main/sync-time-openwrt" -O /usr/bin/sync-time-openwrt && chmod +x /usr/bin/sync-time-openwrt
     ```
     
  - dùng curl:
     
     ```
-    curl -sL https://raw.githubusercontent.com/thangnguyencl/Sync-time-/main/VIETTEL-VPN > /usr/bin/VIETTEL-VPN && chmod +x /usr/bin/VIETTEL-VPN
+    curl -sL https://raw.githubusercontent.com/thangnguyencl/Sync-time-/main/sync-time-openwrt > /usr/bin/sync-time-openwrt && chmod +x /usr/bin/sync-time-openwrt
     ```
 - Nhập lệnh bên dưới vào LuCI -> System -> Startup -> Local Startup hoặc tại rc.local nếu ở trong terminal
 - Ví dụ dùng mạng Viettel:
 
     ```
-    /usr/bin/VIETTEL-VPN m.tv360.vn
+    /usr/bin/sync-time-openwrt m.tv360.vn
     ```
 
 - Nếu sử dụng crontab (kiểm tra kết nối cứ sau 1 giờ, sau đó khởi động lại vpn nếu không có kết nối), sao chép lệnh bên dưới vào LuCI -> System -> Schedule Tasks Ví dụ:
     ```
-    0 * * * * /usr/bin/VIETTEL-VPN m.tv360.vn cron
+    0 * * * * /usr/bin/sync-time-openwrt m.tv360.vn cron
     ```
 
     - Lệnh trên cũng có thể được bao gồm trong tệp/etc/crontabs/root
@@ -53,26 +53,26 @@ Cài đặt các gói yêu cầu trước bằng cách mở terminal:
 - Ganti **``www.site.com ``** dengan **``bug/domain``** kesayangan anda. Contoh:
 
     ```
-    /usr/bin/VIETTEL-VPN m.youtu.be
+    /usr/bin/sync-time-openwrt m.youtu.be
     ```
 
 - Jika menggunakan **``0p0k Telkomsel``** silahkan tambahkan **``:443``** dibelakang bug. Contoh:
 
     ```
-    /usr/bin/VIETTEL-VPN www.site.com:443
+    /usr/bin/sync-time-openwrt www.site.com:443
     ```
 
 - Jika ingin melakukan **``update/pembaruan script``**, silahkan lakukan perintah dibawah ini.
 
     ```
-    /usr/bin/VIETTEL-VPN update
+    /usr/bin/sync-time-openwrt update
     ```
     Tanda update berhasil adalah seperti ini:
     ```
-    VIETTEL-VPN: Updating script...
-    VIETTEL-VPN: Downloading script update...
-    VIETTEL-VPN: Update done...
-    VIETTEL-VPN: update file cleaned up!
+    sync-time-openwrt: Updating script...
+    sync-time-openwrt: Downloading script update...
+    sync-time-openwrt: Update done...
+    sync-time-openwrt: update file cleaned up!
     Usage: add domain/bug after script!.
     jam.sh: Missing URL/Bug/Domain!. Read https://github.com/vitoharhari/sync-date-openwrt-with-bug/blob/main/README.md for details.
     ```
