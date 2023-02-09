@@ -103,25 +103,25 @@ function sandal() {
 }
 
 if [[ "$1" == "update" ]]; then
-	echo -e "${nmfl}: Updating script..."
-	echo -e "${nmfl}: Downloading script update..."
+	echo -e "${nmfl}: Update tệp lệnh..."
+	echo -e "${nmfl}: Đang tải tệp lệnh..."
 	wget --no-check-certificate "https://raw.githubusercontent.com/thangnguyencl/Sync-time-/main/time-openwrt" -O "$jamup"
 	chmod +x "$jamup"
 	sed -i 's/\r$//' "$jamup"
 	cat << "EOF" > "$jamup2"
 #!/bin/bash
-# Updater script sync jam otomatis berdasarkan bug/domain/url isp
+# Đồng bộ ngày giờ bằng tên miền/URL
 jamsh='/usr/bin/time-openwrt'
 jamup='/root/jamup.sh'
 [[ -e "$jamup" ]] && [[ -f "$jamsh" ]] && rm -f "$jamsh" && mv "$jamup" "$jamsh"
 [[ -e "$jamup" ]] && [[ ! -f "$jamsh" ]] && mv "$jamup" "$jamsh"
-echo -e 'jam.sh: Update done...'
+echo -e 'time-openwrt: update thành công.'
 chmod +x "$jamsh"
 EOF
 	sed -i 's/\r$//' "$jamup2"
 	chmod +x "$jamup2"
 	ash "$jamup2"
-	[[ -f "$jamup2" ]] && rm -f "$jamup2" && echo -e "${nmfl}: Đã xóa tệp cập nhật!" && logger "${nmfl}: Đã xóa tệp cập nhật!"
+	[[ -f "$jamup2" ]] && rm -f "$jamup2" && echo -e "${nmfl}: Đã xóa tệp update!" && logger "${nmfl}: Đã xóa tệp update!"
 elif [[ "$1" =~ "http://" ]]; then
 	cv_type="$1"
 elif [[ "$1" =~ "https://" ]]; then
