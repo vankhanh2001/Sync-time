@@ -98,8 +98,8 @@ function sandal() {
     esac
 
 	date -u -s "$tahun"."$bulan"."$hari"-"$jam""$menit" > /dev/null 2>&1
-	echo -e "${nmfl}: Set time to [ $(date) ]"
-	logger "${nmfl}: Set time to [ $(date) ]"
+	echo -e "${nmfl}: Đặt ngày giờ thành [ $(date) ]"
+	logger "${nmfl}: Đặt ngày giờ thành [ $(date) ]"
 }
 
 if [[ "$1" == "update" ]]; then
@@ -136,17 +136,17 @@ fi
 
 function ngepink() {
 	if [[ $(curl -si ${cv_type} | grep -c 'Date:') == "1" ]]; then
-		echo -e "${nmfl}: Connection to ${cv_type} is available, resuming task..."
-		logger "${nmfl}: Connection to ${cv_type} is available, resuming task..."
+		echo -e "${nmfl}: Kết nối tới ${cv_type} hoạt động, tiếp tục tác vụ..."
+		logger "${nmfl}: Kết nối tới ${cv_type} hoạt động, tiếp tục tác vụ..."
 	else 
 		if [[ "$2" == "cron" ]]; then
-			echo -e "${nmfl}: cron mode detected and connection to ${cv_type} is unavailable, restarting VPN..."
-			logger "${nmfl}: cron mode detected and connection to ${cv_type} is unavailable, restarting VPN..."
+			echo -e "${nmfl}: Chế độ cron kết nối tới ${cv_type} không khả dụng,khởi động lại VPN..."
+			logger "${nmfl}: Chế độ cron kết nối tới ${cv_type} không khả dụng,khởi động lại VPN..."
 			nyetop
 			nyetart
 		else
-			echo -e "${nmfl}: Connection to ${cv_type} is unavailable, pinging again..."
-			logger "${nmfl}: Connection to ${cv_type} is unavailable, pinging again..."
+			echo -e "${nmfl}: Kết nối tới ${cv_type} is không khả dụng, đang ping lại..."
+			logger "${nmfl}: Kết nối tới ${cv_type} is không khả dụng, đang ping lại..."
 			sleep 3
 			ngepink
 		fi
@@ -155,8 +155,8 @@ function ngepink() {
 
 if [[ ! -z "$cv_type" ]]; then
 	# Script Version
-	echo -e "${nmfl}: Script v${scver}"
-	logger "${nmfl}: Script v${scver}"
+	echo -e "${nmfl}: Phiên bản v${scver} mod lại bởi Nguyễn Thắng."
+	logger "${nmfl}: Phiên bản v${scver} mod lại bởi Nguyễn Thắng."
 	
 	# Runner
 	if [[ "$2" == "cron" ]]; then
@@ -170,13 +170,13 @@ if [[ ! -z "$cv_type" ]]; then
 	fi
 
 	# Cleaning files
-	[[ -f "$logp" ]] && rm -f "$logp" && echo -e "${nmfl}: logp cleaned up!" && logger "${nmfl}: logp cleaned up!"
-	[[ -f "$dtdir" ]] && rm -f "$dtdir" && echo -e "${nmfl}: tmp dir cleaned up!" && logger "${nmfl}: tmp dir cleaned up!"
-	[[ -f "$jamup2" ]] && rm -f "$jamup2" && echo -e "${nmfl}: update file cleaned up!" && logger "${nmfl}: update file cleaned up!"
+	[[ -f "$logp" ]] && rm -f "$logp" && echo -e "${nmfl}: Đã dọn thư mục logp!" && logger "${nmfl}: Đã dọn thư mục logp!"
+	[[ -f "$dtdir" ]] && rm -f "$dtdir" && echo -e "${nmfl}: Đã dọn thư mục tmp dir!" && logger "${nmfl}: Đã dọn thư mục tmp dir!"
+	[[ -f "$jamup2" ]] && rm -f "$jamup2" && echo -e "${nmfl}: Đã xóa tệp cập nhật!" && logger "${nmfl}: Đã xóa tệp cập nhật!"
 else
-	echo -e "Usage: add domain/bug after script!."
-	echo -e "${nmfl}: Missing URL/Bug/Domain!. Read https://github.com/vitoharhari/sync-date-openwrt-with-bug/blob/main/README.md for details."
-	logger "${nmfl}: Missing URL/Bug/Domain!. Read https://github.com/vitoharhari/sync-date-openwrt-with-bug/blob/main/README.md for details."
+	echo -e "Cách dùng: Thêm tên miền sau tệp lệnh!."
+	echo -e "${nmfl}: Thiếu tên miền/URL!. Vào trang hỗ trợ để biết thêm chi tiết."
+	logger "${nmfl}: Thiếu tên miền/URL!. Vào trang hỗ trợ để biết thêm chi tiết."
 fi
 
 # Sync Jam otomatis berdasarkan bug isp by AlkhaNET
