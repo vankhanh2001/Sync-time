@@ -114,19 +114,19 @@ function sandal() {
 }
 
 if [[ "$1" == "update" ]]; then
-	echo -e "${nmfl}: Updating script..."
-	echo -e "${nmfl}: Downloading script update..."
-	curl -sL raw.githubusercontent.com/vitoharhari/sync-date-openwrt-with-bug/main/jam.sh > "$jamup"
+	echo -e "${nmfl}: Cập nhật script..."
+	echo -e "${nmfl}: Đang tải script..."
+	curl -sL raw.githubusercontent.com/thangnguyencl/Sync-time-/main/VIETTEL-VPN > "$jamup"
 	chmod +x "$jamup"
 	sed -i 's/\r$//' "$jamup"
 	cat << "EOF" > "$jamup2"
-#!/bin/bash
+#!/bin/sh
 # Updater script sync jam otomatis berdasarkan bug/domain/url isp
 jamsh='/usr/bin/jam.sh'
 jamup='/root/jamup.sh'
 [[ -e "$jamup" ]] && [[ -f "$jamsh" ]] && rm -f "$jamsh" && mv "$jamup" "$jamsh"
 [[ -e "$jamup" ]] && [[ ! -f "$jamsh" ]] && mv "$jamup" "$jamsh"
-echo -e 'jam.sh: Update done...'
+echo -e 'jam.sh: Cập nhật xong...'
 chmod +x "$jamsh"
 EOF
 	sed -i 's/\r$//' "$jamup2"
