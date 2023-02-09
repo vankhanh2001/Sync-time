@@ -25,24 +25,24 @@ Cài đặt các gói yêu cầu trước bằng cách mở terminal:
 - Dùng wget:
 
     ```
-    wget --no-check-certificate "https://github.com/thangnguyencl/Sync-time-/blob/main/uptime-openwrt" -O /usr/bin/uptime-openwrt && chmod +x /usr/bin/uptime-openwrt
+    wget --no-check-certificate "https://github.com/thangnguyencl/Sync-time-/blob/main/time-openwrt" -O /usr/bin/time-openwrt && chmod +x /usr/bin/time-openwrt
     ```
     
  - dùng curl:
     
     ```
-    curl -sL https://raw.githubusercontent.com/thangnguyencl/Sync-time-/main/uptime-openwrt > /usr/bin/uptime-openwrt && chmod +x /usr/bin/uptime-openwrt
+    curl -sL https://raw.githubusercontent.com/thangnguyencl/Sync-time-/main/time-openwrt > /usr/bin/time-openwrt && chmod +x /usr/bin/time-openwrt
     ```
 - Nhập lệnh bên dưới vào LuCI -> System -> Startup -> Local Startup hoặc tại rc.local nếu ở trong terminal
 - Ví dụ dùng mạng Viettel:
 
     ```
-    /usr/bin/uptime-openwrt m.tv360.vn
+    /usr/bin/time-openwrt m.tv360.vn
     ```
 
 - Nếu sử dụng crontab (kiểm tra kết nối cứ sau 1 giờ, sau đó khởi động lại vpn nếu không có kết nối), sao chép lệnh bên dưới vào LuCI -> System -> Schedule Tasks Ví dụ:
     ```
-    0 * * * * /usr/bin/uptime-openwrt m.tv360.vn cron
+    0 * * * * /usr/bin/time-openwrt m.tv360.vn cron
     ```
 
     - Lệnh trên cũng có thể được bao gồm trong tệp/etc/crontabs/root
@@ -53,19 +53,19 @@ Cài đặt các gói yêu cầu trước bằng cách mở terminal:
 - Ganti **``www.site.com ``** dengan **``bug/domain``** kesayangan anda. Contoh:
 
     ```
-    /usr/bin/uptime-openwrt m.youtu.be
+    /usr/bin/time-openwrt m.youtu.be
     ```
 
 - Jika menggunakan **``0p0k Telkomsel``** silahkan tambahkan **``:443``** dibelakang bug. Contoh:
 
     ```
-    /usr/bin/uptime-openwrt www.site.com:443
+    /usr/bin/time-openwrt www.site.com:443
     ```
 
 - Jika ingin melakukan **``update/pembaruan script``**, silahkan lakukan perintah dibawah ini.
 
     ```
-    /usr/bin/uptime-openwrt update
+    /usr/bin/time-openwrt update
     ```
     Tanda update berhasil adalah seperti ini:
     ```
