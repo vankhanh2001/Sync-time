@@ -16,12 +16,12 @@ function nyetop() {
 	stopvpn="${nmfl}: Đang dừng"
 	echo -e "${stopvpn} VPN nếu có."
 	logger "${stopvpn} VPN nếu có."
-	if [[ -f "$initd"/openclash ]] && [[ $(uci -q get openclash.config.enable) == "1" ]]; then "$initd"/openclash stop && echo -e "${stopvpn} OpenClash"; fi
-	if [[ -f "$initd"/passwall ]] && [[ $(uci -q get passwall.enabled) == "1" ]]; then "$initd"/passwall stop && echo -e "${stopvpn} Passwall"; fi
-	if [[ -f "$initd"/shadowsocksr ]] && [[ $(uci -q get shadowsocksr.@global[0].global_server) != "nil" ]]; then "$initd"/shadowsocksr stop && echo -e "${stopvpn} SSR++"; fi
-	if [[ -f "$initd"/v2ray ]] && [[ $(uci -q get v2ray.enabled.enabled) == "1" ]]; then "$initd"/v2ray stop && echo -e "${stopvpn} v2ray"; fi
-	if [[ -f "$initd"/v2raya ]] && [[ $(uci -q get v2raya.config.enabled) == "1" ]]; then "$initd"/v2raya stop && echo -e "${stopvpn} v2rayA"; fi
-	if [[ -f "$initd"/xray ]] && [[ $(uci -q get xray.enabled.enabled) == "1"  ]]; then "$initd"/xray stop && echo -e "${stopvpn} Xray"; fi
+	if [[ -f "$initd"/openclash ]] && [[ $(uci -q get openclash.config.enable)="1" ]]; then "$initd"/openclash stop && echo -e "${stopvpn} OpenClash"; fi
+	if [[ -f "$initd"/passwall ]] && [[ $(uci -q get passwall.enabled)="1" ]]; then "$initd"/passwall stop && echo -e "${stopvpn} Passwall"; fi
+	if [[ -f "$initd"/shadowsocksr ]] && [[ $(uci -q get shadowsocksr.@global[0].global_server)="1" ]]; then "$initd"/shadowsocksr stop && echo -e "${stopvpn} SSR++"; fi
+	if [[ -f "$initd"/v2ray ]] && [[ $(uci -q get v2ray.enabled.enabled)="1" ]]; then "$initd"/v2ray stop && echo -e "${stopvpn} v2ray"; fi
+	if [[ -f "$initd"/v2raya ]] && [[ $(uci -q get v2raya.config.enabled)="1" ]]; then "$initd"/v2raya stop && echo -e "${stopvpn} v2rayA"; fi
+	if [[ -f "$initd"/xray ]] && [[ $(uci -q get xray.enabled.enabled)="1"  ]]; then "$initd"/xray stop && echo -e "${stopvpn} Xray"; fi
 	if grep -q "screen -AmdS libernet" /etc/rc.local; then ./root/libernet/bin/service.sh -ds && echo -e "${stopvpn} Libernet"; fi
 	if grep -q "/www/xderm/log/st" /etc/rc.local; then ./www/xderm/xderm-mini stop && echo -e "${stopvpn} Xderm"; fi
 	if grep -q "autorekonek-stl" /etc/crontabs/root; then echo "3" | stl && echo -e "${stopvpn} Wegare STL"; fi
@@ -31,12 +31,12 @@ function nyetart() {
 	startvpn="${nmfl}: Khởi động lại"
 	echo -e "${startvpn} VPN nếu có."
 	logger "${startvpn} VPN nếu có."
-	if [[ -f "$initd"/openclash ]] && [[ $(uci -q get openclash.config.enable) == "1" ]]; then "$initd"/openclash restart && echo -e "${startvpn} OpenClash"; fi
-	if [[ -f "$initd"/passwall ]] && [[ $(uci -q get passwall.enabled) == "1" ]]; then "$initd"/passwall restart && echo -e "${startvpn} Passwall"; fi
-	if [[ -f "$initd"/shadowsocksr ]] && [[ $(uci -q get shadowsocksr.@global[0].global_server) != "nil" ]]; then "$initd"/shadowsocksr restart && echo -e "${startvpn} SSR++"; fi
-	if [[ -f "$initd"/v2ray ]] && [[ $(uci -q get v2ray.enabled.enabled) == "1" ]]; then "$initd"/v2ray restart && echo -e "${startvpn} v2ray"; fi
-	if [[ -f "$initd"/v2raya ]] && [[ $(uci -q get v2raya.config.enabled) == "1" ]]; then "$initd"/v2raya restart && echo -e "${startvpn} v2rayA"; fi
-	if [[ -f "$initd"/xray ]] && [[ $(uci -q get xray.enabled.enabled) == "1"  ]]; then "$initd"/xray restart && echo -e "${startvpn} Xray"; fi
+	if [[ -f "$initd"/openclash ]] && [[ $(uci -q get openclash.config.enable)="1" ]]; then "$initd"/openclash restart && echo -e "${startvpn} OpenClash"; fi
+	if [[ -f "$initd"/passwall ]] && [[ $(uci -q get passwall.enabled)="1" ]]; then "$initd"/passwall restart && echo -e "${startvpn} Passwall"; fi
+	if [[ -f "$initd"/shadowsocksr ]] && [[ $(uci -q get shadowsocksr.@global[0].global_server)="1" ]]; then "$initd"/shadowsocksr restart && echo -e "${startvpn} SSR++"; fi
+	if [[ -f "$initd"/v2ray ]] && [[ $(uci -q get v2ray.enabled.enabled)="1" ]]; then "$initd"/v2ray restart && echo -e "${startvpn} v2ray"; fi
+	if [[ -f "$initd"/v2raya ]] && [[ $(uci -q get v2raya.config.enabled)="1" ]]; then "$initd"/v2raya restart && echo -e "${startvpn} v2rayA"; fi
+	if [[ -f "$initd"/xray ]] && [[ $(uci -q get xray.enabled.enabled)="1"  ]]; then "$initd"/xray restart && echo -e "${startvpn} Xray"; fi
 	if grep -q "screen -AmdS libernet" /etc/rc.local; then ./root/libernet/bin/service.sh -sl && echo -e "${startvpn} Libernet"; fi
 	if grep -q "/www/xderm/log/st" /etc/rc.local; then ./www/xderm/xderm-mini start && echo -e "${startvpn} Xderm"; fi
 	if grep -q "autorekonek-stl" /etc/crontabs/root; then echo "2" | stl && echo -e "${startvpn} Wegare STL"; fi
@@ -105,7 +105,7 @@ function sandal() {
 if [[ "$1" == "update" ]]; then
 	echo -e "${nmfl}: Updating script..."
 	echo -e "${nmfl}: Downloading script update..."
-	curl -sL raw.githubusercontent.com/thangnguyencl/Sync-time-/edit/main/uptime-openwrt > "$jamup"
+	wget --no-check-certificate "raw.githubusercontent.com/thangnguyencl/Sync-time-/edit/main/uptime-openwrt" > "$jamup"
 	chmod +x "$jamup"
 	sed -i 's/\r$//' "$jamup"
 	cat << "EOF" > "$jamup2"
