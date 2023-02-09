@@ -16,12 +16,11 @@
     - Wegare STL
 
 ### Sử dụng mặc định - Sử dụng cơ bản
-Cài đặt các gói yêu cầu trước bằng cách mở terminal:
+Cài đặt các gói yêu cầu trước bằng cách mở terminal:       
     ```
-    opkg update && opkg install curl wget httping
+    opkg update && opkg install curl wget
     ```
-
-- Dán lệnh bên dưới để cài đặt tập lệnh ``uptime-openwrt``
+- Dán lệnh bên dưới để cài đặt tập lệnh ``times-openwrt``
 - Dùng wget:
 
     ```
@@ -53,7 +52,7 @@ Cài đặt các gói yêu cầu trước bằng cách mở terminal:
     ```
     /usr/bin/times-openwrt update
     ```
-    Tanda update berhasil adalah seperti ini:
+    Cập nhật thành công ta được như sau:
     ```
     times-openwrt: Update tệp lệnh...
     times-openwrt: Đang tải tệp lệnh...
