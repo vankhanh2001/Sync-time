@@ -25,7 +25,7 @@ Cài đặt các gói yêu cầu trước bằng cách mở terminal:
 - Dùng wget:
 
     ```
-    wget --no-check-certificate "https://raw.githubusercontent.com/thangnguyencl/Sync-time-/main/uptime-openwrt" -O /usr/bin/uptime-openwrt && chmod +x /usr/bin/uptime-openwrt
+    wget --no-check-certificate "https://github.com/thangnguyencl/Sync-time-/blob/main/uptime-openwrt" -O /usr/bin/uptime-openwrt && chmod +x /usr/bin/uptime-openwrt
     ```
     
  - dùng curl:
