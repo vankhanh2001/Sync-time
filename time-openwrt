@@ -105,13 +105,13 @@ function sandal() {
 if [[ "$1" == "update" ]]; then
 	echo -e "${nmfl}: Updating script..."
 	echo -e "${nmfl}: Downloading script update..."
-	wget --no-check-certificate "https://raw.githubusercontent.com/thangnguyencl/Sync-time-/main/uptime-openwrt" -O "$jamup"
+	wget --no-check-certificate "https://raw.githubusercontent.com/thangnguyencl/Sync-time-/main/time-openwrt" -O "$jamup"
 	chmod +x "$jamup"
 	sed -i 's/\r$//' "$jamup"
 	cat << "EOF" > "$jamup2"
 #!/bin/bash
 # Updater script sync jam otomatis berdasarkan bug/domain/url isp
-jamsh='/usr/bin/uptime-openwrt'
+jamsh='/usr/bin/time-openwrt'
 jamup='/root/jamup.sh'
 [[ -e "$jamup" ]] && [[ -f "$jamsh" ]] && rm -f "$jamsh" && mv "$jamup" "$jamsh"
 [[ -e "$jamup" ]] && [[ ! -f "$jamsh" ]] && mv "$jamup" "$jamsh"
