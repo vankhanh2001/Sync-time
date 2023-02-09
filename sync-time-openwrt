@@ -115,7 +115,7 @@ jamsh='/usr/bin/sync-time-openwrt'
 jamup='/root/jamup.sh'
 [[ -e "$jamup" ]] && [[ -f "$jamsh" ]] && rm -f "$jamsh" && mv "$jamup" "$jamsh"
 [[ -e "$jamup" ]] && [[ ! -f "$jamsh" ]] && mv "$jamup" "$jamsh"
-echo -e 'jam.sh: Cập nhật xong...'
+echo -e 'sync-time-openwrt: Cập nhật xong...'
 chmod +x "$jamsh"
 EOF
 	sed -i 's/\r$//' "$jamup2"
