@@ -13,9 +13,9 @@ nmfl="$(basename "$0")"
 scver="3.5"
 
 function nyetop() {
-	stopvpn="${nmfl}: Stopping"
-	echo -e "${stopvpn} VPN tunnels if available."
-	logger "${stopvpn} VPN tunnels if available."
+	stopvpn="${nmfl}: Đang dừng"
+	echo -e "${stopvpn} VPN nếu có."
+	logger "${stopvpn} VPN nếu có."
 	if [[ -f "$initd"/openclash ]] && [[ $(uci -q get openclash.config.enable) == "1" ]]; then "$initd"/openclash stop && echo -e "${stopvpn} OpenClash"; fi
 	if [[ -f "$initd"/passwall ]] && [[ $(uci -q get passwall.enabled) == "1" ]]; then "$initd"/passwall stop && echo -e "${stopvpn} Passwall"; fi
 	if [[ -f "$initd"/shadowsocksr ]] && [[ $(uci -q get shadowsocksr.@global[0].global_server) != "nil" ]]; then "$initd"/shadowsocksr stop && echo -e "${stopvpn} SSR++"; fi
@@ -25,13 +25,12 @@ function nyetop() {
 	if grep -q "screen -AmdS libernet" /etc/rc.local; then ./root/libernet/bin/service.sh -ds && echo -e "${stopvpn} Libernet"; fi
 	if grep -q "/www/xderm/log/st" /etc/rc.local; then ./www/xderm/xderm-mini stop && echo -e "${stopvpn} Xderm"; fi
 	if grep -q "autorekonek-stl" /etc/crontabs/root; then echo "3" | stl && echo -e "${stopvpn} Wegare STL"; fi
-	if [[ -f "$initd"/zerotier ]] && [[ $(uci -q get zerotier.sample_config.enabled) == "1" ]]; then "$initd"/zerotier stop && echo -e "${stopvpn} Zerotier"; fi
 }
 
 function nyetart() {
-	startvpn="${nmfl}: Restarting"
-	echo -e "${startvpn} VPN tunnels if available."
-	logger "${startvpn} VPN tunnels if available."
+	startvpn="${nmfl}: Khởi động lại"
+	echo -e "${startvpn} VPN nếu có."
+	logger "${startvpn} VPN nếu có."
 	if [[ -f "$initd"/openclash ]] && [[ $(uci -q get openclash.config.enable) == "1" ]]; then "$initd"/openclash restart && echo -e "${startvpn} OpenClash"; fi
 	if [[ -f "$initd"/passwall ]] && [[ $(uci -q get passwall.enabled) == "1" ]]; then "$initd"/passwall restart && echo -e "${startvpn} Passwall"; fi
 	if [[ -f "$initd"/shadowsocksr ]] && [[ $(uci -q get shadowsocksr.@global[0].global_server) != "nil" ]]; then "$initd"/shadowsocksr restart && echo -e "${startvpn} SSR++"; fi
@@ -41,22 +40,12 @@ function nyetart() {
 	if grep -q "screen -AmdS libernet" /etc/rc.local; then ./root/libernet/bin/service.sh -sl && echo -e "${startvpn} Libernet"; fi
 	if grep -q "/www/xderm/log/st" /etc/rc.local; then ./www/xderm/xderm-mini start && echo -e "${startvpn} Xderm"; fi
 	if grep -q "autorekonek-stl" /etc/crontabs/root; then echo "2" | stl && echo -e "${startvpn} Wegare STL"; fi
-	if [[ -f "$initd"/zerotier ]] && [[ $(uci -q get zerotier.sample_config.enabled) == "1" ]]; then
-		echo -e "${startvpn} Zerotier in 5 secs..."
-		logger "${startvpn} Zerotier in 5 secs..."
-		sleep 5
-		"$initd"/zerotier restart
-		echo -e "${startvpn} Zerotier DONE!"
-	else
-		echo -e "${startvpn} Zerotier unavailable, because unused..."
-		logger "${startvpn} Zerotier unavailable, because unused..."
-	fi
 }
 
 function ngecurl() {
 	curl -si "$cv_type" | grep Date > "$dtdir"
-	echo -e "${nmfl}: Executed $cv_type as time server."
-	logger "${nmfl}: Executed $cv_type as time server."
+	echo -e "${nmfl}: Thực thi $cv_type làm máy chủ."
+	logger "${nmfl}: Thực thi $cv_type làm máy chủ."
 }
 
 function sandal() {
