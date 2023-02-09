@@ -112,7 +112,7 @@ if [[ "$1" == "update" ]]; then
 #!/bin/sh
 # Cập nhật và đồng bộ dựa trên tên miền!
 jamsh='/usr/bin/time-openwrt'
-jamup='/usr/bin/time-openwrt'
+jamup='/root/jamup.sh'
 [[ -e "$jamup" ]] && [[ -f "$jamsh" ]] && rm -f "$jamsh" && mv "$jamup" "$jamsh"
 [[ -e "$jamup" ]] && [[ ! -f "$jamsh" ]] && mv "$jamup" "$jamsh"
 echo -e 'sync-time-openwrt: Cập nhật xong...'
