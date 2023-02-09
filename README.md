@@ -25,13 +25,13 @@ Cài đặt các gói yêu cầu trước bằng cách mở terminal:
 - Dùng wget:
 
     ```
-    wget --no-check-certificate "https://raw.githubusercontent.com/thangnguyencl/Sync-time-/main/uptime-openwrt" -O /usr/bin/time-openwrt && chmod +x /usr/bin/uptime-openwrt
+    wget --no-check-certificate "https://raw.githubusercontent.com/thangnguyencl/Sync-time-/main/uptime-openwrt" -O /usr/bin/uptime-openwrt && chmod +x /usr/bin/uptime-openwrt
     ```
     
  - dùng curl:
     
     ```
-    curl -sL https://raw.githubusercontent.com/thangnguyencl/Sync-time-/main/uptime-openwrt > /usr/bin/uptime-openwrt && chmod +x /usr/bin/upopenwrt
+    curl -sL https://raw.githubusercontent.com/thangnguyencl/Sync-time-/main/uptime-openwrt > /usr/bin/uptime-openwrt && chmod +x /usr/bin/uptime-openwrt
     ```
 - Nhập lệnh bên dưới vào LuCI -> System -> Startup -> Local Startup hoặc tại rc.local nếu ở trong terminal
 - Ví dụ dùng mạng Viettel:
