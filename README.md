@@ -25,24 +25,24 @@ Cài đặt các gói yêu cầu trước bằng cách mở terminal:
 - Dùng wget:
 
     ```
-    wget --no-check-certificate "https://raw.githubusercontent.com/thangnguyencl/Sync-time-/main/time-openwrt" -O /usr/bin/time-openwrt && chmod +x /usr/bin/time-openwrt
+    wget --no-check-certificate "https://raw.githubusercontent.com/thangnguyencl/Sync-time-/main/times-openwrt" -O /usr/bin/times-openwrt && chmod +x /usr/bin/times-openwrt
     ```
     
  - dùng curl:
     
     ```
-    curl -sL https://raw.githubusercontent.com/thangnguyencl/Sync-time-/main/time-openwrt > /usr/bin/time-openwrt && chmod +x /usr/bin/time-openwrt
+    curl -sL https://raw.githubusercontent.com/thangnguyencl/Sync-time-/main/times-openwrt > /usr/bin/times-openwrt && chmod +x /usr/bin/times-openwrt
     ```
 - Nhập lệnh bên dưới vào LuCI -> System -> Startup -> Local Startup hoặc tại rc.local nếu ở trong terminal
 - Ví dụ dùng mạng Viettel:
 
     ```
-    /usr/bin/time-openwrt m.tv360.vn
+    /usr/bin/times-openwrt m.tv360.vn
     ```
 
 - Nếu sử dụng crontab (kiểm tra kết nối cứ sau 1 giờ, sau đó khởi động lại vpn nếu không có kết nối), sao chép lệnh bên dưới vào LuCI -> System -> Schedule Tasks Ví dụ:
     ```
-    0 * * * * /usr/bin/time-openwrt m.tv360.vn cron
+    0 * * * * /usr/bin/times-openwrt m.tv360.vn cron
     ```
 
     - Lệnh trên cũng có thể được bao gồm trong tệp/etc/crontabs/root
@@ -53,26 +53,26 @@ Cài đặt các gói yêu cầu trước bằng cách mở terminal:
 - Ganti **``www.site.com ``** dengan **``bug/domain``** kesayangan anda. Contoh:
 
     ```
-    /usr/bin/time-openwrt m.youtu.be
+    /usr/bin/times-openwrt m.youtu.be
     ```
 
 - Jika menggunakan **``0p0k Telkomsel``** silahkan tambahkan **``:443``** dibelakang bug. Contoh:
 
     ```
-    /usr/bin/time-openwrt www.site.com:443
+    /usr/bin/times-openwrt www.site.com:443
     ```
 
 - Jika ingin melakukan **``update/pembaruan script``**, silahkan lakukan perintah dibawah ini.
 
     ```
-    /usr/bin/time-openwrt update
+    /usr/bin/times-openwrt update
     ```
     Tanda update berhasil adalah seperti ini:
     ```
-    sync-time-openwrt: Updating script...
-    sync-time-openwrt: Downloading script update...
-    sync-time-openwrt: Update done...
-    sync-time-openwrt: update file cleaned up!
+    times-openwrt: Updating script...
+    times-openwrt: Downloading script update...
+    times-openwrt: Update done...
+    times-openwrt: update file cleaned up!
     Usage: add domain/bug after script!.
     jam.sh: Missing URL/Bug/Domain!. Read https://github.com/vitoharhari/sync-date-openwrt-with-bug/blob/main/README.md for details.
     ```
