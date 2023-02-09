@@ -1,8 +1,8 @@
 #!/bin/sh
-# Sync Jam otomatis berdasarkan bug isp by AlkhaNET
-# Extended GMT+7 by vitoharhari
-# Simplify usage and improved codes by helmiau
-# Supported VPN Tunnels: OpenClash, Passwall, ShadowsocksR, ShadowsocksR++, v2ray, v2rayA, xray, Libernet, Xderm Mini, Wegare
+# Sync VIETTEL-VPN được mod lại bởi Thắng Nguyễn
+# Hỗ trợ GMT+7
+# codes bởi helmiau
+# Hỗ trợ VPN Tunnels: OpenClash, Passwall, ShadowsocksR, ShadowsocksR++, v2ray, v2rayA, xray, Libernet, Xderm Mini, Wegare
 
 dtdir="/root/date"
 initd="/etc/init.d"
