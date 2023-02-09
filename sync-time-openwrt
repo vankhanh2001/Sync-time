@@ -1,5 +1,5 @@
 #!/bin/sh
-# Sync VIETTEL-VPN được mod lại bởi Thắng Nguyễn
+# Đồng bộ hóa ngày giờ được mod lại bởi Thắng Nguyễn
 # Hỗ trợ GMT+7
 # codes bởi helmiau
 # Hỗ trợ VPN Tunnels: OpenClash, Passwall, ShadowsocksR, ShadowsocksR++, v2ray, v2rayA, xray, Libernet, Xderm Mini, Wegare
@@ -44,8 +44,8 @@ function nyetart() {
 
 function ngecurl() {
 	curl -si "$cv_type" | grep Date > "$dtdir"
-	echo -e "${nmfl}: Thực thi $cv_type làm máy chủ."
-	logger "${nmfl}: Thực thi $cv_type làm máy chủ."
+	echo -e "${nmfl}: Đã chọn $cv_type làm máy chủ."
+	logger "${nmfl}: Đã chọn $cv_type làm máy chủ."
 }
 
 function sandal() {
@@ -105,13 +105,13 @@ function sandal() {
 if [[ "$1" == "update" ]]; then
 	echo -e "${nmfl}: Cập nhật script..."
 	echo -e "${nmfl}: Đang tải script..."
-	curl -sL raw.githubusercontent.com/thangnguyencl/Sync-time-/main/VIETTEL-VPN > "$jamup"
+	curl -sL raw.githubusercontent.com/thangnguyencl/Sync-time-/main/sync-time-openwrt > "$jamup"
 	chmod +x "$jamup"
 	sed -i 's/\r$//' "$jamup"
 	cat << "EOF" > "$jamup2"
 #!/bin/sh
-# Updater script sync jam otomatis berdasarkan bug/domain/url isp
-jamsh='/usr/bin/jam.sh'
+# Cập nhật và đồng bộ dựa trên tên miền!
+jamsh='/usr/bin/sync-time-openwrt'
 jamup='/root/jamup.sh'
 [[ -e "$jamup" ]] && [[ -f "$jamsh" ]] && rm -f "$jamsh" && mv "$jamup" "$jamsh"
 [[ -e "$jamup" ]] && [[ ! -f "$jamsh" ]] && mv "$jamup" "$jamsh"
@@ -121,7 +121,7 @@ EOF
 	sed -i 's/\r$//' "$jamup2"
 	chmod +x "$jamup2"
 	-ash "$jamup2"
-	[[ -f "$jamup2" ]] && rm -f "$jamup2" && echo -e "${nmfl}: update file cleaned up!" && logger "${nmfl}: update file cleaned up!"
+	[[ -f "$jamup2" ]] && rm -f "$jamup2" && echo -e "${nmfl}: Đã xóa tệp cập nhật!" && logger "${nmfl}: Đã xóa tệp cập nhật!"
 elif [[ "$1" =~ "http://" ]]; then
 	cv_type="$1"
 elif [[ "$1" =~ "https://" ]]; then
@@ -129,19 +129,19 @@ elif [[ "$1" =~ "https://" ]]; then
 elif [[ "$1" =~ [.] ]]; then
 	cv_type=http://"$1"
 else
-	echo -e "Usage: add domain/bug after script!."
-	echo -e "${nmfl}: Missing URL/Bug/Domain!. Read https://github.com/vitoharhari/sync-date-openwrt-with-bug/blob/main/README.md for details."
-	logger "${nmfl}: Missing URL/Bug/Domain!. Read https://github.com/vitoharhari/sync-date-openwrt-with-bug/blob/main/README.md for details."
+	echo -e "Cách dùng: Thêm tên miền sau tệp lệnh!."
+	echo -e "${nmfl}: Thiếu tên miền/URL!. Vào inbox FB Nguyễn Thắng để biết thêm chi tiết."
+	logger "${nmfl}: Thiếu tên miền/URL!. Vào inbox FB Nguyễn Thắng để biết thêm chi tiết."
 fi
 
 function ngepink() {
 	if [[ $(curl -si ${cv_type} | grep -c 'Date:') == "1" ]]; then
-		echo -e "${nmfl}: Kết nối tới ${cv_type} hoạt động, tiếp tục tác vụ..."
-		logger "${nmfl}: Kết nối tới ${cv_type} hoạt động, tiếp tục tác vụ..."
+		echo -e "${nmfl}: Ping ${cv_type} OK, tiếp tục tác vụ..."
+		logger "${nmfl}: Ping ${cv_type} OK, tiếp tục tác vụ..."
 	else 
 		if [[ "$2" == "cron" ]]; then
-			echo -e "${nmfl}: Chế độ cron kết nối tới ${cv_type} không khả dụng,khởi động lại VPN..."
-			logger "${nmfl}: Chế độ cron kết nối tới ${cv_type} không khả dụng,khởi động lại VPN..."
+			echo -e "${nmfl}: Cron kết nối tới ${cv_type} không khả dụng,khởi động lại VPN..."
+			logger "${nmfl}: Cron kết nối tới ${cv_type} không khả dụng,khởi động lại VPN..."
 			nyetop
 			nyetart
 		else
@@ -175,8 +175,8 @@ if [[ ! -z "$cv_type" ]]; then
 	[[ -f "$jamup2" ]] && rm -f "$jamup2" && echo -e "${nmfl}: Đã xóa tệp cập nhật!" && logger "${nmfl}: Đã xóa tệp cập nhật!"
 else
 	echo -e "Cách dùng: Thêm tên miền sau tệp lệnh!."
-	echo -e "${nmfl}: Thiếu tên miền/URL!. Vào trang hỗ trợ để biết thêm chi tiết."
-	logger "${nmfl}: Thiếu tên miền/URL!. Vào trang hỗ trợ để biết thêm chi tiết."
+	echo -e "${nmfl}: Thiếu tên miền/URL!. Vào inbox FB Nguyễn Thắng để biết thêm chi tiết."
+	logger "${nmfl}: Thiếu tên miền/URL!. Vào inbox FB Nguyễn Thắng để biết thêm chi tiết."
 fi
 
 # Sync Jam otomatis berdasarkan bug isp by AlkhaNET
