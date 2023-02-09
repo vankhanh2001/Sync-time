@@ -17,30 +17,32 @@
 
 ### Sử dụng mặc định - Sử dụng cơ bản
 Cài đặt các gói yêu cầu trước bằng cách mở terminal:
-
     ```
-    opkg update && opkg install curl wget httping
+    opkg update && opkg install curl wget
     ```
 
 - Dán lệnh bên dưới để cài đặt tập lệnh ``jam.sh``
+- Dùng wget:
 
-Sử dụng **`wget`**
     ```
     wget --no-check-certificate "https://raw.githubusercontent.com/vitoharhari/sync-date-openwrt-with-bug/main/jam.sh" -O /usr/bin/jam.sh && chmod +x /usr/bin/jam.sh
     ```
-Sử dụng **`curl`**
+    
+ - dùng curl:
+    
     ```
     curl -sL raw.githubusercontent.com/vitoharhari/sync-date-openwrt-with-bug/main/jam.sh > /usr/bin/jam.sh && chmod +x /usr/bin/jam.sh
     ```
 - Nhập lệnh bên dưới vào LuCI -> System -> Startup -> Local Startup hoặc tại rc.local nếu ở trong terminal
+- Ví dụ dùng mạng Viettel:
 
     ```
-    /usr/bin/jam.sh www.site.com 
+    /usr/bin/jam.sh www.tv360.vn
     ```
 
 - Nếu sử dụng crontab (kiểm tra kết nối cứ sau 1 giờ, sau đó khởi động lại vpn nếu không có kết nối), sao chép lệnh bên dưới vào LuCI -> System -> Schedule Tasks Ví dụ:
     ```
-    0 * * * * /usr/bin/jam.sh www.site.com cron
+    0 * * * * /usr/bin/jam.sh www.tv360.vn cron
     ```
 
     - Lệnh trên cũng có thể được bao gồm trong tệp/etc/crontabs/root
