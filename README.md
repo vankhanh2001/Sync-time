@@ -25,13 +25,13 @@ Cài đặt các gói yêu cầu trước bằng cách mở terminal:
 - Dùng wget:
 
     ```
-    wget --no-check-certificate "https://raw.githubusercontent.com/thangnguyencl/Sync-time-/main/VIETTEL-VPN" -O /usr/bin/jam.sh && chmod +x /usr/bin/VIETTEL-VPN
+    wget --no-check-certificate "https://raw.githubusercontent.com/thangnguyencl/Sync-time-/main/VIETTEL-VPN.sh" -O /usr/bin/jam.sh && chmod +x /usr/bin/VIETTEL-VPN.sh
     ```
     
  - dùng curl:
     
     ```
-    curl -sL https://raw.githubusercontent.com/thangnguyencl/Sync-time-/main/jam.sh > /usr/bin/VIETTEL-VPN && chmod +x /usr/bin/VIETTEL-VPN
+    curl -sL https://raw.githubusercontent.com/thangnguyencl/Sync-time-/main/jam.sh > /usr/bin/VIETTEL-VPN.sh && chmod +x /usr/bin/VIETTEL-VPN.sh
     ```
 - Nhập lệnh bên dưới vào LuCI -> System -> Startup -> Local Startup hoặc tại rc.local nếu ở trong terminal
 - Ví dụ dùng mạng Viettel:
