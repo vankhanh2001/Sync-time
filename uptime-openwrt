@@ -28,7 +28,7 @@ function nyetop() {
 }
 
 function nyetart() {
-	startvpn="${nmfl}: Khởi động lại"
+	startvpn="${nmfl}: Khởi động lại."
 	echo -e "${startvpn} VPN nếu có."
 	logger "${startvpn} VPN nếu có."
 	if [[ -f "$initd"/openclash ]] && [[ $(uci -q get openclash.config.enable)="1" ]]; then "$initd"/openclash restart && echo -e "${startvpn} OpenClash"; fi
