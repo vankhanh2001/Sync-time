@@ -85,15 +85,7 @@ times-openwrt: Đã xóa tệp update!
 
 Cách dùng: Thêm tên miền sau tệp lệnh!.
 
-times-openwrt: Thiếu tên miền/URL!. Vào inbox FB Nguyễn Thắng để biết thêm chi tiết.
 
-Đội ngũ phát triển
-
-Tập lệnh và codes của AlkhaNet by Teguh Surya Mungaran
-
-Mã GMT và các mã khác của Vito H.S
-
-Trình kiểm tra và cài đặt opkg, kiểm tra internet, vpn manager, codes chọn GMT của Helmi Amirudin
     
 
 
